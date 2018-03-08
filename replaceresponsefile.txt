@@ -1,0 +1,16 @@
+- hosts: all
+  tasks: 
+   - lineinfile:
+       path: /home/chinnu/Desktop/responsefile.nd.txt
+       regexp: "{{ item.regexp }}"
+       line: "{{ item.line }}"
+     with_items:
+       - { regexp: '# -OPT silentInstallLicenseAcceptance="true"', line: '-OPT silentInstallLicenseAcceptance="true"' }
+       - { regexp: '# -OPT allowNonRootSilentInstall="true"', line: '-OPT allowNonRootSilentInstall="true"' } 
+       - { regexp: '# -OPT disableOSPrereqChecking="true"', line: ' -OPT disableOSPrereqChecking="true"' }
+       - { regexp: '# -OPT disableNonBlockingPrereqChecking="true"', line: ' -OPT disableNonBlockingPrereqChecking="true"' }
+       - { regexp: '-OPT profileType="cell"', line: '-OPT profileType="none"' }
+       - { regexp: '-OPT PROF_adminUserName=', line: '-OPT PROF_adminUserName=wasadmin' }
+       - { regexp: '-OPT PROF_adminPassword=', line: '-OPT PROF_adminPassword=wasadmin' }
+       - { regexp: '# -OPT installLocation="/opt/IBM/WebSphere/AppServer"', line: '-OPT installLocation="/opt/IBM/WebSphere/AppServer"' }
+       
